@@ -51,9 +51,9 @@ interface builder 101
 
 `Remove` the Main.storyboard file
 
-1.ProjectName-Info.plist 갱신 - `Remove` the Main storyboard base file name key.
+1. ProjectName-Info.plist 갱신 - `Remove` the Main storyboard base file name key.
 
-1.nib file생성후   project’s view controller 와 연결함
+1. nib file생성후   project’s view controller 와 연결함
 
  A. Create a nib file (File –> New –> File –> View)
 
@@ -61,7 +61,7 @@ interface builder 101
 
  C. Link the File's Owner's view outlet to the view object in the nib file
 
-1.App delegate 파일  변경하기
+1. App delegate 파일  변경하기
 
  A. 헤더 임포트 ` #import "ViewController.h" `
  B.  application:didFinishLaunchingWithOptions: method: 수정합니다. 
