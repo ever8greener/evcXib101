@@ -79,3 +79,46 @@ interface builder 101
 }
 ```
 이상입니다.
+
+## 두번째 뷰컨트롤러로 이동하기(짜잔~)
+
+** 참고로 편의상  ViewController 클래스명칭을 여기부터는 MainViewController 로 수정했다.( 첫 진입 ViewController 라서 그렇게 지었다 )
+
+1. 우선 navigation Controller 를 붙여야 한다. 이렇게하려면 AppDelegate.m 의 didFinishLaunchingWithOptions: 메소드 부분을 아래와 같이 다시 수정한다.
+```objc
+UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:viewController];
+```
+2. rootViewController 를 navController 로 지정한다
+```objc
+self.window.rootViewController = navController;
+```
+
+3.즉 didFinishLaunchingWithOptions: 메소드의 전체코드는 아래와 같다.
+
+```objc
+self.window = [[UIWindow alloc]  initWithFrame:[[UIScreen mainScreen]bounds]];
+    MainViewController *viewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
+
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:viewController];
+    self.window.rootViewController = navController;
+    
+    [self.window makeKeyAndVisible];
+    return YES;
+
+```
+4. 이 시점에서 실행해보면 그냥 empty project에서 navigation bar 영역이 상단에 나타난다.
+ 
+5. 그리고 SecoundViewController.h / .m / .xib 3쌍의 파일을 만들어 준다. 왜냐면 가야할 곳을 만들어야하지않나?
+ViewController.m에 버튼하나 올리고 SecondViewController 로 가는 IBAction 하나 코딩하고 xib 위의 버튼과 연결한다 (ctrl+drag).
+
+```objc
+- (IBAction)actionGoSecond:(UIButton *)sender {
+    SecondViewController *secVC = [[SecondViewController alloc]initWithNibName:@"SecondViewController" bundle:nil];
+    [self.navigationController pushViewController:secVC animated:YES];
+}
+```
+
+끝.
+
+
+
