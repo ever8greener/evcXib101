@@ -95,14 +95,13 @@ self.window.rootViewController = navController;
  3.즉 didFinishLaunchingWithOptions: 메소드의 전체코드는 아래와 같다.
 ```objc
 self.window = [[UIWindow alloc]  initWithFrame:[[UIScreen mainScreen]bounds]];
-    MainViewController *viewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
+MainViewController *viewController = [[MainViewController alloc]initWithNibName:@"MainViewController" bundle:nil];
 
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:viewController];
-    self.window.rootViewController = navController;
-    
-    [self.window makeKeyAndVisible];
-    return YES;
+UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:viewController];
+self.window.rootViewController = navController;
 
+[self.window makeKeyAndVisible];
+return YES;
 ```
  4.이 시점에서 실행해보면 그냥 empty project에서 navigation bar 영역이 상단에 나타난다.
  
