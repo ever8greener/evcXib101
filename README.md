@@ -2,7 +2,7 @@
 interface builder 101
 
 ##Xcode7 에서 Empty 프로젝트만들기 ( 방법1 )
- 참고 [http://codefromabove.com/2014/09/xcode-6-removing-storyboards-and-creating-useful-empty-projects/]
+참고 [http://codefromabove.com/2014/09/xcode-6-removing-storyboards-and-creating-useful-empty-projects/]
 
 1. 싱글뷰 프로젝트 만들고
 
@@ -49,9 +49,9 @@ interface builder 101
 ## Xcode7 에서 Empty 프로젝트만들기  (방법2입니다. 펌..) 이 방법이 더 간단합니다.
 참고: [http://stackoverflow.com/questions/25783282/how-to-create-an-empty-application-in-xcode-6-without-storyboard]
 
-`Remove` the Main.storyboard file
+1. the Main.storyboard file **삭제**하고
 
-1. ProjectName-Info.plist 갱신 - `Remove` the Main storyboard base file name key.
+1. ProjectName-Info.plist 갱신 -  the Main storyboard base file name key도 **삭제**.
 
 1. nib file생성후   project’s view controller 와 연결함
 
@@ -64,6 +64,7 @@ interface builder 101
 1. App delegate 파일  변경하기
 
  A. 헤더 임포트 ` #import "ViewController.h" `
+ 
  B.  application:didFinishLaunchingWithOptions: method: 수정합니다. 
 
 
