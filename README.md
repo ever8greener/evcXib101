@@ -1,7 +1,7 @@
 
 interface builder 101
 
-##Xcode7 에서 Empty 프로젝트만들기
+##Xcode7 에서 Empty 프로젝트만들기 ( 방법1 )
  참고 [http://codefromabove.com/2014/09/xcode-6-removing-storyboards-and-creating-useful-empty-projects/]
 
 1. 싱글뷰 프로젝트 만들고
@@ -45,3 +45,34 @@ interface builder 101
 감사합니다! 
 
 참고: info.plist 에서 LaunchScreen.xib 를 지우면 화면에서 상하 black 의 여백이 생김...따라서 안 지우는게 좋은듯..왜? 그건 모르겠습니다.
+
+####Xcode7 에서 Empty 프로젝트만들기  (방법2입니다. 펌..) 이 방법이 더 간단합니다.
+참고: [http://stackoverflow.com/questions/25783282/how-to-create-an-empty-application-in-xcode-6-without-storyboard]
+
+`Remove` the Main.storyboard file
+
+ProjectName-Info.plist 갱신 - `Remove` the Main storyboard base file name key.
+
+nib file생성후   project’s view controller 와 연결함
+
+ 1.Create a nib file (File –> New –> File –> View)
+
+ 2.Update the File's Owner's class to whatever the project’s view controller is called
+
+ 3.Link the File's Owner's view outlet to the view object in the nib file
+
+Update the app delegate
+
+ 1.Import the project’s view controller’s header file ` #import "ViewController.h"`
+
+ 2.Update the application:didFinishLaunchingWithOptions: method:
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    MyViewController *viewController = [[MyViewController alloc] initWithNibName:@"MyViewController" bundle:nil];
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    return YES;
+}
+```
