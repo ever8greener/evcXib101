@@ -1,7 +1,7 @@
 
 interface builder 101
 
-##Xcode에서 Empty 프로젝트만들기
+##Xcode7 에서 Empty 프로젝트만들기
  참고 [http://codefromabove.com/2014/09/xcode-6-removing-storyboards-and-creating-useful-empty-projects/]
 
 1. 싱글뷰 프로젝트 만들고
