@@ -26,12 +26,13 @@ interface builder 101
 
 그리고  ViewController.m 의 didFinishLaunchingWithOptions 수정
 ```objc
- self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.viewController = [[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
+}
 ```
 앗..근데 또 에러날것이다. m 파일의 헤더를 import  해주자
 
