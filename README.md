@@ -115,6 +115,33 @@ ViewController.m에 버튼하나 올리고 SecondViewController 로 가는 IBAct
 }
 ```
 
+아주아주 참고사항인데 swift 경우 아래와 같다.
+```swift
+
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
+    
+    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    
+    let navigat = UINavigationController()
+    let vcw = ViewController(nibName: "ViewController", bundle: nil)
+    
+    navigat.pushViewController(vcw, animated: false)
+    self.window!.rootViewController = navigat
+    
+    self.window!.makeKeyAndVisible()
+    return true
+    
+}
+
+//in ViewController.swift
+
+@IBAction func GoToNext(sender : AnyObject)
+{
+    let ViewController2 = ViewController2(nibName: "ViewController2", bundle: nil)
+    self.navigationController.pushViewController(ViewController2, animated: true)
+}
+
+```
 끝.
 
 
