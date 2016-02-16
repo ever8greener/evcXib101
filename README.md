@@ -43,3 +43,5 @@ interface builder 101
 
 끝입니다.!
 감사합니다! 
+
+참고: info.plist 에서 LaunchScreen.xib 를 지우면 화면에서 상하 black 의 여백이 생김...따라서 안 지우는게 좋은듯..왜? 그건 모르겠습니다.
