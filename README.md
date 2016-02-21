@@ -142,7 +142,20 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 }
 
 ```
+## 세번째 뷰컨트롤러로 이동하기(짜짜잔 ~)
+
+* 별로 다른 것은 없고, ThirdViewController 쌍을 만들어줌(.m .h .xib)
+* SecondViewController ---> ThirdViewController 로 이동해야하므로...
+* SecondViewController 에다가 아래 코딩해줌
+```objc
+- (IBAction)actionGoNext:(UIButton *)sender {
+    ThirdViewController *nextVC = [[ThirdViewController alloc]initWithNibName:@"ThirdViewController" bundle:nil];
+    [self.navigationController pushViewController:nextVC animated:YES];
+}
+```
 끝.
+
+
 
 
 
