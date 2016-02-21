@@ -153,6 +153,35 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
     [self.navigationController pushViewController:nextVC animated:YES];
 }
 ```
+## Tip / 이전,이후,루트 뷰로 이동(push,pop, popToRoot 시키기) 
+UINavigation  계층에서 `Back` button 이 아닌 직접 올린 uibutton 에서도 이전 뷰로 이동가능하다.
+
+```objc
+- (IBAction)actionPop:(UIButton *)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+```
+1. 새로운 뷰로 이동하기/빠져 나오기 
+```objc
+// 새로운 뷰 삽입하기
+[navController pushViewController:newViewController animated:YES];
+ 
+// 뷰컨트롤러 안에서 – 자기 자신을 네비게이션 컨트롤러에서 제거( = 이전 뷰 컨트롤러로 이동)
+[self.navigationController popViewControllerAnimated:YES];
+ 
+// 어디서든지 네비게이션 컨트롤러에 접근 가능할 때
+[navController popViewControllerAnimated:YES];[/code]
+```
+
+1. 최상위 뷰로 한번에 이동하기
+* 여러개의 뷰를 통해서 들어가 있는 상태라면 다음과 같은 방법으로 한번에 최상위로 빠져나갈 수 있습니다.
+```objc
+[self.navigationController popToRootViewControllerAnimated:YES];[/code]
+```
+1. 모달(Modal)뷰 형식으로 띄우기
+ 
+
+```
 끝.
 
 
