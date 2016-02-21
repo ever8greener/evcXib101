@@ -155,13 +155,8 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 ```
 ## Tip / 이전,이후,루트 뷰로 이동(push,pop, popToRoot 시키기) 
 UINavigation  계층에서 `Back` button 이 아닌 직접 올린 uibutton 에서도 이전 뷰로 이동가능하다.
-
-```objc
-- (IBAction)actionPop:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-```
-1. 새로운 뷰로 이동하기/빠져 나오기 
+ 
+* 새로운 뷰로 이동하기/빠져 나오기 
 ```objc
 // 새로운 뷰 삽입하기
 [navController pushViewController:newViewController animated:YES];
@@ -173,15 +168,19 @@ UINavigation  계층에서 `Back` button 이 아닌 직접 올린 uibutton 에�
 [navController popViewControllerAnimated:YES];[/code]
 ```
 
-1. 최상위 뷰로 한번에 이동하기
-* 여러개의 뷰를 통해서 들어가 있는 상태라면 다음과 같은 방법으로 한번에 최상위로 빠져나갈 수 있습니다.
+* 최상위 뷰로 한번에 이동하기- Navigation화면상 이미 수차례 이동한 상태라면(이를테면 5번째) 한번에 최상위로 빠져나갈 수 있음.
 ```objc
 [self.navigationController popToRootViewControllerAnimated:YES];[/code]
 ```
-1. 모달(Modal)뷰 형식으로 띄우기
+* 모달(Modal)뷰로 즉 full screen 으로 띄우기 (deprecated됨 in iOS6)
+네비게이션 컨트롤러를 사용하되, 별개의 페이지처럼 띄우고 싶을 경우임(네비게이션바조차 나오지 않는 풀스크린의 뷰) 
+```objc
+// 모달 뷰 띄우기
+[self.navigationController presentModalViewController:modelViewController animated:YES];
  
-
-```
+// 모달 뷰 제거 – 모달 뷰 컨트롤러 내부에서
+[self dismissModalViewControllerAnimated:YES];[/code]
+``` 
 끝.
 
 
